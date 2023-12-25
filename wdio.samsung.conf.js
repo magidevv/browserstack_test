@@ -8,7 +8,7 @@ export const config = {
   key: process.env.BROWSERSTACK_ACCESS_KEY || "BROWSERSTACK_ACCESS_KEY",
 
   updateJob: false,
-  specs: ["./e2e/specs/**.specs.js"],
+  specs: ["./test/specs/**/*.js"],
   exclude: [],
 
   capabilities: [
