@@ -31,6 +31,19 @@ export const config = {
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
 
+  reporters: [
+    "spec",
+    [
+      "allure",
+      {
+        //
+        // If you are using the "allure" reporter you should define the directory where
+        // WebdriverIO should save all allure reports.
+        outputDir: "./reports",
+      },
+    ],
+  ],
+
   framework: "mocha",
   mochaOpts: {
     ui: "bdd",

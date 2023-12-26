@@ -26,5 +26,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run WebdriverIO tests
+      - name: Run WebdriverIO tests (Google Pixel)
         run: npx wdio wdio.pixel.conf.js
+
+      - name: Install Allure globally
+        run: npm install -g allure-commandline
+
+      - name: Generate Allure report
+        run: npx allure generate reports -o allure-report --clean
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./main-repo/allure-report
+          publish_branch: allure-report
